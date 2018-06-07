@@ -26,6 +26,9 @@ class MicropostsController extends Controller
             return view('welcome');
         }
     }
+    
+    
+    
          public function store(Request $request)
     {
         $this->validate($request, [
@@ -38,6 +41,8 @@ class MicropostsController extends Controller
 
         return redirect('/');
     }
+    
+    
     
      public function destroy($id)
     {

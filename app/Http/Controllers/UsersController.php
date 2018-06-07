@@ -100,6 +100,8 @@ class UsersController extends Controller
         //
     }
     
+    
+    
      public function followings($id)
     {
         $user = User::find($id);
@@ -114,6 +116,8 @@ class UsersController extends Controller
 
         return view('users.followings', $data);
     }
+
+
 
     public function followers($id)
     {

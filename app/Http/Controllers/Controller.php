@@ -23,7 +23,7 @@ abstract class Controller extends BaseController
         ];
     }
     
-      public function index()
+       public function index()
     {
         $data = [];
         if (\Auth::check()) {
