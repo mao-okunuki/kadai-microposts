@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
 
+use App\User;
+
+use App\Microposts;
 
 class MicropostsController extends Controller
 {
@@ -54,6 +57,26 @@ class MicropostsController extends Controller
 
         return redirect()->back();
     }
+
+
+
+    public function favorites($id)
+    {
+        $user = User::find($id);
+        $favorites = $user->favorites()->paginate(10);
+
+        $data = [
+            'user' => $user,
+            'favoritess' => $favorites,
+        ];
+
+        $data += $this->counts($favorites);
+
+        return view('microposts.favorites', $data);
+    }
+
     
 
 }
+
+
