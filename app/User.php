@@ -104,7 +104,7 @@ class User extends Authenticatable
     
     public function fav($favoritesId){
         
-        $exist = $this->is_following($favoritesId);
+        $exist = $this->is_fav($favoritesId);
         
         if ($exist) {
             return false;
@@ -117,13 +117,14 @@ class User extends Authenticatable
     
     public function unfav($favoritesId) {
         
-         $exist = $this->is_following($favoritesId);
+         $exist = $this->is_fav($favoritesId);
         
         if ($exist) {
-            $this->favorites()->detach($favoritesId);
+            $this->favorites()->detach($favoritesId); 
             return true;
         } else {
             return false;
+            
         }
         
     }
